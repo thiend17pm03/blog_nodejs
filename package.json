@@ -1,0 +1,33 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiend17pm03/blog_nodejs.git"
+  },
+  "keywords": [
+    "blog",
+    "test"
+  ],
+  "author": "HoangThien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiend17pm03/blog_nodejs/issues"
+  },
+  "homepage": "https://github.com/thiend17pm03/blog_nodejs#readme",
+  "dependencies": {
+    "engine-handlebars": "^1.1.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}

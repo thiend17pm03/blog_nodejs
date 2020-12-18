@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{> page/title}}</title>
+</head>
+
+<body>
+    <div> {{>page/header}} </div>
+    <div>{{{body}}}</div>
+    <div>
+
+        {{#if showList }}
+        {{#each users}}
+        <li>tên : {{name}} || Tuổi : {{age}}</li>
+        {{/each}}
+        {{else}}
+        <p>Không có danh sách</p>
+        {{/if}}
+        <h4> test mảng các đối tượng</h4>
+        {{#users}}
+        <p style="color:yellow"><span>Tên :</span>{{name}} <span> || Tuổi</span>{{age}}</p>
+        {{/users}}
+
+    </div>
+    <div>{{> page/footer}}
+    </div>
+
+</body>
+
+</html>
