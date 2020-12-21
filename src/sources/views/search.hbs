@@ -1,0 +1,24 @@
+<div class="m-4">
+    <form method="POST">
+
+        <div class="form-group">
+            <label for="search-inpput">Từ khóa</label>
+            <input type="text" name="q" class="form-control mt-1" placeholder="Nhập từ khóa cần tìm ....">
+            <label for="gender-inpput" class=" mt-1">Giới tính</label>
+            <select name="gender" class="form-control mt-1">
+                <option value="">Chọn giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+            </select>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="row mt-2">
+            {{#if content}}
+            <p>req : &nbsp; {{content}}</p>
+            {{/if}}
+        </div>
+    </form>
+
+</div>

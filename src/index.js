@@ -2,9 +2,15 @@ const express = require("express")
 const morgan = require("morgan")
 const handlebars = require('express-handlebars')
 const path = require('path')
+const { query } = require("express")
 
 const app = express()
 const port = 3000;
+
+app.use(express.urlencoded({extended:true}))// dùng để parse trong form post request
+
+app.use(express.json()) // dùng để parse json với phương thức post trong XMLHtttpRequest, fetch, axios,...
+
 
 //truy cập vào file trong thư mục img và tmp
 // app.use(express.static(path.join(__dirname,'public','img')));
@@ -72,6 +78,22 @@ app.get('/testbootstrap4',(req,res)=>{
     res.render('testbootstrap4',{title:'BootStrap 4'});
 })
 
+
+// fix Lỗi get favicon.ico express
+app.get('/favicon.ico',(req, res,next)=>{
+  res.sendStatus(204) // no content
+
+})
+
+app.get('/search',(req,res)=>{
+    
+    res.render('search',{title:'search query parameter',result: JSON.stringify(req.query)})
+})
+app.post('/search',(req,res)=>{
+    res.render('search',{title:'search query parameter',content: JSON.stringify(req.body)})
+
+    
+})
 // tạo khai báo khi truy cập vào đường dẫn
 app.get("/trangchu",(req, res)=> res.send("Hello world"));// tạo khai báo khi truy cập vào đường dẫn,
 // nếu không khai báo thì khi truy cập vào sẽ lỗi " Can not get /exxxx"
