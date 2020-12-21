@@ -1,0 +1,40 @@
+@import "variables";
+// biến trong scss
+$color-yellow: yellow;
+
+//hàm có thể truyền hoặc k truyền tham số thì k có ngoặc()
+//phân biệt hoa thường
+@mixin fontAlign($fontt, $alignnn) {
+  font-size: $fontt;
+  text-align: $alignnn;
+}
+
+.ke-thua-main {
+  font-size: 20px;
+  color: pink;
+  font-style: italic;
+}
+
+.test-scss {
+  //biến
+  color: $red-color;
+
+  //quy tắc xếp chồng
+  .xep-chong {
+    color: $color-yellow;
+  }
+
+  //hàm
+  @include fontAlign(40px, center);
+
+  // kế thừa
+  .ke-thua-child {
+    @extend .ke-thua-main;
+    color: orange;
+  }
+
+  &-gach-chan {
+    text-decoration: blink;
+    color: black;
+  }
+}

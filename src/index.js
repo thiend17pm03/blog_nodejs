@@ -6,6 +6,11 @@ const path = require('path')
 const app = express()
 const port = 3000;
 
+//truy cập vào file trong thư mục img và tmp
+// app.use(express.static(path.join(__dirname,'public','img')));
+// app.use(express.static(path.join(__dirname,'public','tmp')));
+app.use(express.static(path.join(__dirname,'public')));
+
 
 // hiển thị log ra console : combine, commom, short, dev, tiny.
 app.use (morgan("dev"));
@@ -39,18 +44,32 @@ app.use ('/trangchu',(req,res,next)=>{
 })
 app.set('views',path.join(__dirname,'sources','views'))
 
-app.get("/",(req, res)=> 
+app.get('/sass',(req,res)=>{
+res.render('testsass',{title:'test node-SASS'})
+})
+
+
+app.get("/hbs",(req, res)=> 
 {
-    return res.render('home',{'title':"ok",'mess':'this is a message','showList':true,
+    return res.render('testhbs',{'title':"ok",'mess':'this is a message','showList':true,
     'users':[{'name':'','age':''},{'name':'','age':''},{'name':'','age':''}],
 
 })
 }
 );
 
+app.get('/',(req,res)=>{
+    res.render('home')
+
+})
+
 app.get("/tintuc",(req,res)=>{
     res.render('new',{layout:'testLayout','title':" thay đổi layout"})
 
+})
+
+app.get('/testbootstrap4',(req,res)=>{
+    res.render('testbootstrap4',{title:'BootStrap 4'});
 })
 
 // tạo khai báo khi truy cập vào đường dẫn
@@ -58,5 +77,4 @@ app.get("/trangchu",(req, res)=> res.send("Hello world"));// tạo khai báo khi
 // nếu không khai báo thì khi truy cập vào sẽ lỗi " Can not get /exxxx"
 app.listen(port,()=> console.log(`example app listen att localhost:${port}`)); // lắng nghe khi truy cập vào port
 
-
-
+ 

@@ -1,0 +1,15 @@
+<div>
+
+    {{#if showList }}
+    {{#each users}}
+    <li>tên : {{name}} || Tuổi : {{age}}</li>
+    {{/each}}
+    {{else}}
+    <p>Không có danh sách</p>
+    {{/if}}
+    <h4> test mảng các đối tượng</h4>
+    {{#users}}
+    <p style="color:yellow"><span>Tên :</span>{{name}} <span> || Tuổi</span>{{age}}</p>
+    {{/users}}
+
+</div>
