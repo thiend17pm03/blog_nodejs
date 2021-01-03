@@ -14,9 +14,9 @@
   },
   "husky": {
     "hooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged --allow-empty"
   }
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thiend17pm03/blog_nodejs.git"
