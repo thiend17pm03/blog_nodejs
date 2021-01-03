@@ -4,11 +4,19 @@
   "description": "Test",
   "main": "src/index.js",
   "scripts": {
+    "beautiful" : "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/sources/scss -o src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+    "pre-commit": "lint-staged"
+  }
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thiend17pm03/blog_nodejs.git"
@@ -29,8 +37,11 @@
     "express-handlebars": "^5.2.0"
   },
   "devDependencies": {
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "morgan": "^1.10.0",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
-    "node-sass": "^5.0.0"
+    "prettier": "^2.2.1"
   }
 }
