@@ -4,7 +4,7 @@
   "description": "Test",
   "main": "src/index.js",
   "scripts": {
-    "beautiful" : "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
+    "beautiful": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/sources/scss -o src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,8 +14,8 @@
   },
   "husky": {
     "hooks": {
-    "pre-commit": "lint-staged --allow-empty"
-  }
+      "pre-commit": "lint-staged --allow-empty"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,8 @@
   "dependencies": {
     "engine-handlebars": "^1.1.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0"
+    "express-handlebars": "^5.2.0",
+    "mongoose": "^5.11.9"
   },
   "devDependencies": {
     "husky": "^4.3.6",

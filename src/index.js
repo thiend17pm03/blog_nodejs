@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const { query } = require('express');
 const route = require('./routes/index');
+const db = require('./config/db');
 
 const app = express();
 const port = 3000;
@@ -47,4 +48,7 @@ app.set('views', path.join(__dirname, 'sources', 'views'));
 //Routes
 route(app);
 
-app.listen(port, () => console.log(`example app listen att localhost:${port}`)); // lắng nghe khi truy cập vào port
+app.listen(port, () => console.log(`App listen att localhost:${port}`)); // lắng nghe khi truy cập vào port
+
+//Connect DB
+db.connect();
