@@ -5,6 +5,7 @@ const path = require('path');
 const { query } = require('express');
 const route = require('./routes/index');
 const db = require('./config/db');
+const methodOverride = require('method-override');
 
 const app = express();
 const port = 3000;
@@ -34,7 +35,16 @@ app.use((req, res, next) => {
 });
 
 //handlebars
-app.engine('hbs', handlebars({ extname: '.hbs' }));
+app.engine(
+    'hbs',
+    handlebars({
+        extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
+    }),
+);
+
 app.set('view engine', 'hbs');
 
 // Kiểm tra khi đến đường dẫn này thì cần đủ điều kiện mới pass
@@ -44,6 +54,9 @@ app.use('/trangchu', (req, res, next) => {
     next();
 });
 app.set('views', path.join(__dirname, 'sources', 'views'));
+
+//method override
+app.use(methodOverride('_method'));
 
 //Routes
 route(app);

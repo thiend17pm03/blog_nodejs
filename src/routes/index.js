@@ -1,6 +1,8 @@
 const newsRouter = require('./news');
 const siteRouter = require('./site');
 const testRouter = require('./tests');
+const meRouter = require('./me');
+const coursesRouter = require('./courses');
 
 const route = (app) => {
     app.use('/test', testRouter);
@@ -14,7 +16,9 @@ const route = (app) => {
 
     // fix Lỗi get favicon.ico express
 
-    app.use('/', siteRouter);
+    app.use('/courses', coursesRouter);
+    app.use('/me', meRouter);
+    app.use('/', siteRouter); // '/' luôn để sau cùng
 };
 
 module.exports = route;
